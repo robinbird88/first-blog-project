@@ -13,7 +13,7 @@
 
   <div class="form-group">
     <%= form.label :author %>
-    <%= form.text_field :author, id: :comment_author, class: "form-control", placeholder: "Who are you?"%>
+    <%= form.hidden_field :user_id, value: current_user.id, class: "form-control" %>
   </div>
 
   <div class="form-group">

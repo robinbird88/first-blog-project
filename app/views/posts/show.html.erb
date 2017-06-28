@@ -7,7 +7,7 @@
 
 <p>
   <strong>Author:</strong>
-  <%= @post.author %>
+  <%= @post.user.email %>
 </p>
 
 <p>
@@ -20,10 +20,10 @@
     <%= render 'comments/form', comment: @comment %>
 
     <% @post.comments.each do |comment| %>
-    	<p><%= comment.author %> said...</p>
+    	<p><%= comment.user.username %> said...</p>
     	<p><%= comment.comment_entry %> </p>
  <% end %>
 
- 
+
  </div>
 <%= link_to 'Back', posts_path %>

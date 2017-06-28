@@ -11,6 +11,20 @@
   <body>
   	<div class= "container">
   <!-- rep all the pages in navigation, yield. brings in all the pages, wrap and render -->
+  <!-- created a sign out button -->
+  <div class="container">
+  <!-- pull right means that it will be on the right side of the screen -->
+  <div class="pull-right">
+    <% if user_signed_in? %>
+   <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-primary" %> 
+   <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+  
+        <p>Welcome <%= current_user.username %></p>
+    <% end %>
+  </div>
+
+
+
     <%= yield %>
   </body>
 </html>
