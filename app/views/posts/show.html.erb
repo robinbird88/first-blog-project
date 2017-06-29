@@ -1,30 +1,46 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+<!-- thank you Heather -->
+<h2 id="post_title">Comments about <%=@post.title %></h2>
+  <div class="container">
+    <div class="well post">
+      
+       <h2><%= @post.title.html_safe %></h2>
+      
+        <h4>By <%= @post.user.username %> <%= image_tag @post.user.avatar.thumb %></h4>
+      <br>
+      <br>
+      <p>
+        <%= @post.blog_entry.html_safe %>
+      </p>
+    </div>
+  </div>
 
-<p>
-  <strong>Author:</strong>
-  <%= @post.user.email %>
-</p>
 
-<p>
-  <strong>Blog entry:</strong>
-  <%= @post.blog_entry %>
-</p>
+
 
 <%= link_to 'Edit Post', edit_post_path(@post), class: "btn btn-sm btn-warning" %> 
+
 
 <div id="comments">
     <%= render 'comments/form', comment: @comment %>
 
+<br>
+<br>
+<h3>What people are saying...</h3>
+
     <% @post.comments.each do |comment| %>
+    <div class="well">
     	<p><%= comment.user.username %> said...</p>
     	<p><%= comment.comment_entry %> </p>
- <% end %>
+
+    </div>
+       <% end %>
 
 
  </div>
-<%= link_to 'Back', posts_path %>
+<%= link_to 'Back', posts_path, class: "btn btn-sm btn-primary" %>
+
+
+
+

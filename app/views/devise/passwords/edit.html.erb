@@ -4,6 +4,12 @@
   <%= devise_error_messages! %>
   <%= f.hidden_field :reset_password_token %>
 
+<div class="form-group">
+    <strong>Upload a Profile Pic:</strong>
+    <%= f.file_field :avatar, class: "form-control" %>
+  
+  </div>
+
   <div class="field">
     <%= f.label :password, "New password" %><br />
     <% if @minimum_password_length %>
@@ -22,4 +28,4 @@
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+

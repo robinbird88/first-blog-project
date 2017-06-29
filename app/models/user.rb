@@ -7,4 +7,6 @@ class User < ApplicationRecord
          mount_uploader :avatar, AvatarUploader
          has_many :posts
          has_many :comments
+         # if it breaks, uncomment this!
+         paginates_per 3
 end

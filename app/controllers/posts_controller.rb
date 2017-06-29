@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.all.page(params[:page])
   end
 
   # GET /posts/1
@@ -20,8 +20,10 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
+
   end
 
+  
   # POST /posts
   # POST /posts.json
   def create
@@ -60,6 +62,14 @@ class PostsController < ApplicationController
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+# do i change :id to :name?
+  def user_posts
+    @user = User.find(params[:id])
+    
+# what should go inside of here? active recored call!
+
+
   end
 
   private
